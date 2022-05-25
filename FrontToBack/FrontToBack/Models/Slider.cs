@@ -13,6 +13,5 @@ namespace FrontToBack.Models
         public string Desc { get; set; }
         public string RedirectedUrl { get; set; }
         public string RedirectedUrlText { get; set; }
-        public int Price { get; set; }
     }
 }
