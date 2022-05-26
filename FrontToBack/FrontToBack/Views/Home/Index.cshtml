@@ -1,4 +1,4 @@
-﻿@model List<Slider>
+﻿@model HomeVM
 <!--=================================
 Hero Area
 ===================================== -->
@@ -11,7 +11,7 @@ Hero Area
                             "slidesToShow": 1,
                             "dots":true
                             }'>
-        @for (int i = 0; i < Model.Count; i++)
+        @for (int i = 0; i < Model.Sliders.Count; i++)
         {
             if (i % 2 == 0)
             {
@@ -19,18 +19,18 @@ Hero Area
             <div class="container">
                 <div class="home-content text-center text-sm-left position-relative">
                     <div class="hero-partial-image image-left">
-                        <img src="~/assets/image/bg-images/@Model[i].ImageUrl" alt="">
+                        <img src="~/assets/image/bg-images/@Model.Sliders[i].ImageUrl" alt="">
                     </div>
                     <div class="row align-items-center justify-content-start justify-content-md-end">
                         <div class="col-lg-6 col-xl-7 col-md-6 col-sm-7">
                             <div class="home-content-inner content-right-side">
                                 <h1>
-                                    @Model[i].Title1 <br>
-                                    @Model[i].Title2
+                                    @Model.Sliders[i].Title1 <br>
+                                    @Model.Sliders[i].Title2
                                 </h1>
-                                <h2>@Model[i].Desc</h2>
-                                <a href="@Model[i].RedirectedUrl" class="btn btn-outlined--primary">
-                                    @Model[i].RedirectedUrlText
+                                <h2>@Model.Sliders[i].Desc</h2>
+                                <a href="@Model.Sliders[i].RedirectedUrl" class="btn btn-outlined--primary">
+                                    @Model.Sliders[i].RedirectedUrlText
                                 </a>
                             </div>
                         </div>
@@ -45,18 +45,18 @@ Hero Area
                 <div class="container">
                     <div class="home-content text-center text-sm-left position-relative">
                         <div class="hero-partial-image image-right">
-                        <img src="~/assets/image/bg-images/@Model[i].ImageUrl" alt="">
+                        <img src="~/assets/image/bg-images/@Model.Sliders[i].ImageUrl" alt="">
                         </div>
                         <div class="row no-gutters ">
                             <div class="col-xl-6 col-md-6 col-sm-7">
                                 <div class="home-content-inner content-left-side">
                                     <h1>
-                                        @Model[i].Title1<br>
-                                        @Model[i].Title2
+                                        @Model.Sliders[i].Title1<br>
+                                        @Model.Sliders[i].Title2
                                     </h1>
-                                    <h2>@Model[i].Desc</h2>
-                                    <a href="@Model[i].RedirectedUrl" class="btn btn-outlined--primary">
-                                        @Model[i].RedirectedUrlText
+                                    <h2>@Model.Sliders[i].Desc</h2>
+                                    <a href="@Model.Sliders[i].RedirectedUrl" class="btn btn-outlined--primary">
+                                        @Model.Sliders[i].RedirectedUrlText
                                     </a>
                                 </div>
                             </div>
@@ -75,50 +75,20 @@ Home Features Section
 <section class="mb--30">
     <div class="container">
         <div class="row">
-            <div class="col-xl-3 col-md-6 mt--30">
-                <div class="feature-box h-100">
-                    <div class="icon">
-                        <i class="fas fa-shipping-fast"></i>
-                    </div>
-                    <div class="text">
-                        <h5>Free Shipping Item</h5>
-                        <p> Orders over $500</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-md-6 mt--30">
-                <div class="feature-box h-100">
-                    <div class="icon">
-                        <i class="fas fa-redo-alt"></i>
-                    </div>
-                    <div class="text">
-                        <h5>Money Back Guarantee</h5>
-                        <p>100% money back</p>
+            @for (int i = 0; i < Model.Features.Count; i++)
+            {
+                <div class="col-xl-3 col-md-6 mt--30">
+                    <div class="feature-box h-100">
+                        <div class="icon">
+                            <i class="@Model.Features[i].IconUrl"></i>
+                        </div>
+                        <div class="text">
+                            <h5>@Model.Features[i].Title</h5>
+                            <p> @Model.Features[i].Desc</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-xl-3 col-md-6 mt--30">
-                <div class="feature-box h-100">
-                    <div class="icon">
-                        <i class="fas fa-piggy-bank"></i>
-                    </div>
-                    <div class="text">
-                        <h5>Cash On Delivery</h5>
-                        <p>Lorem ipsum dolor amet</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-md-6 mt--30">
-                <div class="feature-box h-100">
-                    <div class="icon">
-                        <i class="fas fa-life-ring"></i>
-                    </div>
-                    <div class="text">
-                        <h5>Help & Support</h5>
-                        <p>Call us : + 0123.4567.89</p>
-                    </div>
-                </div>
-            </div>
+            }
         </div>
     </div>
 </section>

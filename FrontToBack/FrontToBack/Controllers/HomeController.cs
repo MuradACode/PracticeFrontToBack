@@ -1,6 +1,8 @@
 ﻿using FrontToBack.DAL;
 using FrontToBack.Models;
+using FrontToBack.ViewModel;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,10 +17,14 @@ namespace FrontToBack.Controllers
         {
             _context = context;
         }
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            List<Slider> sliders = _context.Sliders.ToList();
-            return View(sliders);
+            HomeVM homeVM = new HomeVM();
+
+            homeVM.Sliders = await _context.Sliders.ToListAsync();
+            homeVM.Features = await _context.Features.ToListAsync();
+
+            return View(homeVM);
         }
     }
 }
