@@ -4,14 +4,16 @@ using FrontToBack.DAL;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace FrontToBack.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220526112557_Init")]
+    partial class Init
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -83,12 +85,6 @@ namespace FrontToBack.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("ButtonText")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ButtonUrl")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<DateTime>("CreatedTime")
                         .HasColumnType("datetime2");
 
@@ -99,12 +95,6 @@ namespace FrontToBack.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("RedirectedUrl")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Title1")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Title2")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("UpdatedTime")

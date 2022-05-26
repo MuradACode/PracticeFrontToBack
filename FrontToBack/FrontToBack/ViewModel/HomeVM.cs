@@ -10,5 +10,7 @@ namespace FrontToBack.ViewModel
     {
         public List<Slider> Sliders { get; set; }
         public List<Feature> Features { get; set; }
+        public List<Promo> Promos { get; set; }
+        public List<Promo2> Promos2 { get; set; }
     }
 }

@@ -99,16 +99,14 @@ Promotion Section One
     <h2 class="sr-only">Promotion Section</h2>
     <div class="container">
         <div class="row space-db--30">
-            <div class="col-lg-6 col-md-6 mb--30">
-                <a href="#" class="promo-image promo-overlay">
-                    <img src="~/assets/image/bg-images/promo-banner-with-text.jpg" alt="">
-                </a>
-            </div>
-            <div class="col-lg-6 col-md-6 mb--30">
-                <a href="#" class="promo-image promo-overlay">
-                    <img src="~/assets/image/bg-images/promo-banner-with-text-2.jpg" alt="">
-                </a>
-            </div>
+            @for (int i = 0; i < Model.Promos.Count; i++)
+			{
+                <div class="col-lg-6 col-md-6 mb--30">
+                    <a href="@Model.Promos[i].RedirectedUrl" class="promo-image promo-overlay">
+                        <img src="~/assets/image/bg-images/@Model.Promos[i].ImageUrl" alt="">
+                    </a>
+                </div>
+			}
         </div>
     </div>
 </section>
@@ -2479,33 +2477,33 @@ Promotion Section Two
         <div class="row space-db--30">
             <div class="col-lg-8 mb--30">
                 <div class="promo-wrapper promo-type-one">
-                    <a href="#" class="promo-image  promo-overlay bg-image"
-                       data-bg="./assets/image/bg-images/promo-banner-mid.jpg">
+                    <a href="@Model.Promos2[0].RedirectedUrl" class="promo-image  promo-overlay bg-image"
+                       data-bg="./assets/image/bg-images/@Model.Promos2[0].ImageUrl ">
                         <!-- <img src="~/assets/image/bg-images/promo-banner-mid.jpg" alt=""> -->
                     </a>
                     <div class="promo-text">
                         <div class="promo-text-inner">
-                            <h2>Buy 3. Get Free 1.</h2>
-                            <h3>50% off for selected products in Pustok.</h3>
-                            <a href="#" class="btn btn-outlined--red-faded">See More</a>
+                            <h2>@Model.Promos2[0].Title1</h2>
+                            <h3>@Model.Promos2[0].Title2</h3>
+                            <a href="@Model.Promos2[0].ButtonUrl" class="btn btn-outlined--red-faded">@Model.Promos2[0].ButtonText</a>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="col-lg-4 mb--30">
                 <div class="promo-wrapper promo-type-two ">
-                    <a href="#" class="promo-image promo-overlay bg-image"
-                       data-bg="./assets/image/bg-images/promo-banner-small.jpg">
+                    <a href="@Model.Promos2[1].RedirectedUrl" class="promo-image promo-overlay bg-image"
+                       data-bg="./assets/image/bg-images/@Model.Promos2[1].ImageUrl">
                         <!-- <img src="~/assets/image/bg-images/promo-banner-small.jpg" alt=""> -->
                     </a>
                     <div class="promo-text">
                         <div class="promo-text-inner">
                             <span class="d-block price">$26.00</span>
                             <h2>
-                                Praise for <br>
-                                The Night Child
+                                @Model.Promos2[1].Title1<br>
+                                @Model.Promos2[1].Title2
                             </h2>
-                            <a href="#" class="btn btn-outlined--primary">Buy Now</a>
+                            <a href="@Model.Promos2[1].ButtonUrl" class="btn btn-outlined--primary">@Model.Promos2[1].ButtonText</a>
                         </div>
                     </div>
                 </div>

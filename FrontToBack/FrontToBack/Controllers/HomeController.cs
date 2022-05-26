@@ -23,6 +23,8 @@ namespace FrontToBack.Controllers
 
             homeVM.Sliders = await _context.Sliders.ToListAsync();
             homeVM.Features = await _context.Features.ToListAsync();
+            homeVM.Promos = await _context.Promos.ToListAsync();
+            homeVM.Promos2 = await _context.Promos2.ToListAsync();
 
             return View(homeVM);
         }

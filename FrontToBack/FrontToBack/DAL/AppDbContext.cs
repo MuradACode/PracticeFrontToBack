@@ -13,5 +13,7 @@ namespace FrontToBack.DAL
 
         public DbSet<Slider> Sliders { get; set; }
         public DbSet<Feature> Features { get; set; }
+        public DbSet<Promo> Promos { get; set; }
+        public DbSet<Promo2> Promos2 { get; set; }
     }
 }
